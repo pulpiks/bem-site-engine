@@ -56,7 +56,8 @@ BlockNode.prototype.setSource = function(version, level, block) {
     this.source = {
         prefix: examplePrefix,
         data: block.data,
-        jsdoc: block.jsdoc
+        jsdoc: block.jsdoc,
+        url: u.format('%s/tree/%s/common.blocks/%s', version.url, version.ref, block.name)
     };
     return this;
 };
