@@ -74,7 +74,6 @@ BEMDOM.decl('block', {
         return tabName ? tabName[1] : false;
     },
 
-
     _setTabUrl: function(tabName) {
         // inherit form page block
         if(window.legacyIE) return;
@@ -82,11 +81,20 @@ BEMDOM.decl('block', {
         // Fix duplicate name tab in location.pathname, 'button/docs/jsdoc/examples/docs/'
         // when tabname is isset in location.pathname,
         // in this case get direct block path with regexp + tab name
+
+        var hash;
+        if(tabName === 'examples') {
+            hash = location.hash;
+        } else {
+            hash = '';
+        }
+        console.log('tabName', tabName);
+
         if(this._isTabNameInPath()) {
             tabName = window.location.pathname.match(/\S+(?=(docs)|(jsdoc)|(examples))/)[0] + tabName;
         }
 
-        window.history.pushState(null, null, tabName + '/');
+        window.history.pushState(null, null, tabName + '/' + hash);
     },
 
     _loadExamples: function() {
