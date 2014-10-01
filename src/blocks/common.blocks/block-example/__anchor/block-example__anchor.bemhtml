@@ -1,0 +1,15 @@
+block('block-example').elem('anchor')(
+    def()(function() {
+        return applyCtx({
+            block: 'link',
+            url: this.ctx.url,
+            mix: [
+                {
+                    block: this.block,
+                    elem: 'anchor'
+                }
+            ]
+
+        });
+    })
+);

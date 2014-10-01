@@ -1,0 +1,22 @@
+.block-example__anchor
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+
+    &:link,
+    &:link:hover,
+    &:link:visited
+    {
+        color: #999;
+    }
+
+    &:before
+    {
+        content: '⌘';
+    }
+}
