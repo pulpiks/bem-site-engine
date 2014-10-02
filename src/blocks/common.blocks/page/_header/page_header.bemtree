@@ -1,0 +1,20 @@
+block('page').mod('header', true)(
+    content()(function() {
+        return [
+            {
+                block: 'header',
+                content: this.data.menu.shift()
+            },
+            {
+                block: 'content-wrapper',
+                content: [
+                    { block: 'menus' },
+                    { block: 'content', mods: { view: this.data.node.view }, js: true },
+                    { block: 'search-panel' }
+                ]
+            },
+            { block: 'metrika' },
+            { elem: 'js' }
+        ]
+    })
+);

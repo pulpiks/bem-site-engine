@@ -1,6 +1,7 @@
-block page {
+block('page')(
+    def().match(function() { return !this._myGuard; })(function() {
+        this._myGuard = true;
 
-    default: {
         return applyCtx({
             block : this.block,
             title : this.data.title,
@@ -8,9 +9,9 @@ block page {
             head : apply('head'),
             favicon : this.data.statics + '/favicon.ico'
         });
-    }
+    }),
 
-    head: {
+    mode('head')(function() {
         var c = [],
             meta = this.data.meta;
 
@@ -44,17 +45,14 @@ block page {
         }
 
         return applyCtx(c);
-    }
+    }),
 
-    asset, this.elem !== '': {
-        prefix : leStatics.getUrl(leBundles.getBundlePath(this.data.bundleName) + '/' + this.data.bundleName + '.min'),
-        suffix : this.ctx.ext
-    }
-
-    content: [
-        { block: 'menus' },
-        { block : 'content', mods: { view: this.data.node.view }, js: true },
-        { block : 'metrika' },
-        { elem : 'js' }
-    ]
-}
+    content()(function() {
+        return [
+            { block: 'menus' },
+            { block : 'content', mods: { view: this.data.node.view }, js: true },
+            { block : 'metrika' },
+            { elem : 'js' }
+        ];
+    })
+);

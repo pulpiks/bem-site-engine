@@ -1,14 +1,14 @@
-block page, elem js {
+block('page').elem('js')(
+    def()(function() {
+        var elem = this.elem,
+            prefix = leStatics.getUrl(leBundles.getBundlePath(this.data.bundleName) + '/' + this.data.bundleName + '.min');
 
-    default: {
-        var url = apply('asset', this.ctx.ext = this.elem);
         return [
             '<!--[if lt IE 9]>',
-            { elem : this.elem, url : '//yandex.st/es5-shims/0.0.1/es5-shims.min.js' },
+            { elem : elem, url : '//yandex.st/es5-shims/0.0.1/es5-shims.min.js' },
             '<![endif]-->',
-            { elem : this.elem, url : '//yandex.st/jquery/1.10.2/jquery.min.js' },
-            { elem : this.elem, url : url.prefix + '.' + url.suffix }
+            { elem : elem, url : '//yandex.st/jquery/1.10.2/jquery.min.js' },
+            { elem : elem, url : prefix + '.js' }
         ];
-    }
-
-}
+    })
+);
