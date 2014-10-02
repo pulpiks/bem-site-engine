@@ -1,0 +1,17 @@
+block('search-item').elem('level')(
+    def()(function() {
+        var content = this.ctx.content,
+            elemMods = this.ctx.elemMods;
+
+        return applyCtx({
+            block: 'link',
+            url: content,
+            attrs: { target: 'blank', title: content },
+            mix: { block: this.block, elem: this.elem, elemMods: elemMods },
+            content: {
+                block: 'icon',
+                mods: { view: elemMods.icon }
+            }
+        });
+    })
+);

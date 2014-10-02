@@ -1,0 +1,8 @@
+- elems:
+  - content
+  - spin
+
+- block: search-results
+- block: search-form
+
+

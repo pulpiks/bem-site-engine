@@ -1,0 +1,24 @@
+block('search-results')(
+    match(function() { return this.ctx.text.length < 2; }).content()(function() {
+        return {
+            elem: 'error',
+            content: 'Нужно ввести минимум <strong>2</strong> буквы'
+        };
+    }),
+
+    match(function() { return !this.ctx.results.length && this.ctx.text.length> 1; }).content()(function() {
+        return {
+            elem: 'error',
+            content: 'По запросу <strong>' + this.ctx.text + '</strong> ничего не найдено, попробуйте еще'
+        };
+    }),
+
+    match(function() { return this.ctx.results.length; }).content()(function() {
+        return this.ctx.results.map(function(result) {
+            return {
+                block: 'search-item',
+                content: result
+            };
+        });
+    })
+);

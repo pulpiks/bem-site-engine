@@ -1,0 +1,8 @@
+block('search-item').elem('description')(
+    content()(function() {
+        return {
+            tag: 'p',
+            content: applyNext()
+        };
+    })
+);
