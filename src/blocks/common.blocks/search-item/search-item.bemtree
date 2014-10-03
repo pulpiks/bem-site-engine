@@ -1,34 +1,37 @@
 block('search-item')(
     match(function() { return this.ctx.content; }).content()(function() {
-        var content = this.ctx.content,
-            versions = content.versions,
-            listVersions = Object.keys(versions),
-            currentVersion = versions[listVersions[0]],
-            currentUrl = currentVersion[0].url;
 
-        return [
-            {
-                elem: 'lib-name',
-                content: content.lib
-            },
-            {
-                block: 'link',
-                url: currentUrl,
-                attrs: { target: '_blank', title: 'Текущая версия' },
-                mix: { block: this.block, elem: 'title' },
-                content: content.block
-            },
-            {
-                elem: 'choose',
-                versions: versions,
-                listVersions: listVersions,
-                currentVersion: currentVersion
-            },
-            {
-                elem: 'description',
-                content: content.description
-            }
-        ];
+        return JSON.stringify(this.ctx.content, null ,4);
+
+//        var content = this.ctx.content,
+//            versions = content.versions,
+//            listVersions = Object.keys(versions),
+//            currentVersion = versions[listVersions[0]],
+//            currentUrl = currentVersion[0].url;
+//
+//        return [
+//            {
+//                elem: 'lib-name',
+//                content: content.lib
+//            },
+//            {
+//                block: 'link',
+//                url: currentUrl,
+//                attrs: { target: '_blank', title: 'Текущая версия' },
+//                mix: { block: this.block, elem: 'title' },
+//                content: content.block
+//            },
+//            {
+//                elem: 'choose',
+//                versions: versions,
+//                listVersions: listVersions,
+//                currentVersion: currentVersion
+//            },
+//            {
+//                elem: 'description',
+//                content: content.description
+//            }
+//        ];
     }),
 
     elem('choose')(

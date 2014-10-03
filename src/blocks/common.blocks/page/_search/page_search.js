@@ -7,6 +7,12 @@ modules.define('page', ['jquery'], function(provide, $, Page) {
 
                     var self = this;
 
+                    // (Start) For testing
+                    setTimeout(function() {
+                        self.findBlockInside('search-panel').setMod('state', 'open');
+                    }, 0);
+                    // (Start) For testing
+
                     this.bindToDoc('click keyup', function(e) {
                         var target = $(e.target);
 

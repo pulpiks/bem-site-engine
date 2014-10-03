@@ -5,7 +5,7 @@ modules.define('search-item', ['i-bem__dom', 'jquery'], function(provide, BEMDOM
                 inited: function() {
                     this._select = this.findBlockInside('select');
 
-                    this._select.on('change', this._onSelectChange, this);
+                    this._select && this._select.on('change', this._onSelectChange, this);
                     this._setDescription();
                 }
             }
