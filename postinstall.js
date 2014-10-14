@@ -6,8 +6,8 @@ var path = require('path'),
     vow = require('vow'),
     vowFs = require('vow-fs');
 
+//TODO implement your own environment detection
 function getEnvironment() {
-    //TODO implement your own environment detection
     return 'development';
 }
 
@@ -45,33 +45,11 @@ function runCommand(cmd, opts, name) {
         });
 }
 
-function checkOrCreateDir(dir) {
-    var directory = path.join(process.cwd(), dir),
-        createDir = function() {
-            console.info('create %s directory', dir);
-            return vowFs.makeDir(directory);
-        };
-    return vowFs.isDir(directory)
-        .then(function(isDir) {
-            if(!isDir) {
-                return createDir();
-            }
-            console.warn('directory %s already exists', dir);
-            return vow.resolve();
-        })
-        .fail(createDir);
-}
-
 console.info('--- application install ---');
 return vow.all([
-        checkOrCreateDir('logs'),
-        checkOrCreateDir('backups'),
-        checkOrCreateDir('cache').then(function() {
-            return vow.all([
-                checkOrCreateDir('cache/branch'),
-                checkOrCreateDir('cache/tag')
-            ]);
-        })
+        vowFs.makeDir(path.join(process.cwd(), 'logs')),
+        vowFs.makeDir(path.join(process.cwd(), 'cache' ,'branch')),
+        vowFs.makeDir(path.join(process.cwd(), 'cache', 'tag'))
     ])
     .then(function() {
         return runCommand(util.format('ln -snf %s current', process.env.NODE_ENV || 'dev'), {
