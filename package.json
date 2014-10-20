@@ -18,7 +18,6 @@
     "request": "2.33.0",
     "mime": "1.2.11",
     "fs-extra": "~0.8.1",
-    "susanin": "~0.1.11",
     "nconf": "~0.6.9",
     "vow": "~0.4.x",
     "vow-fs": "0.3.0",
@@ -27,12 +26,9 @@
     "sha1": "~1.1.0",
     "marked": "*",
     "semver": "~2.3.0",
-    "js2xmlparser": "*",
-    "github": "*",
-    "yandex-disk": "0.0.6",
-    "coa": "~0.4.0",
     "deep-extend": "~0.2.10",
-    "js-beautify": "1.5.1"
+    "js-beautify": "1.5.1",
+    "bse-admin": "git://github.com/bem/bse-admin.git"
   },
   "devDependencies": {
     "borschik": "~1.0.5",
@@ -52,11 +48,11 @@
   },
   "scripts": {
     "start": "node bin/app.js",
-    "make": "npm install && node postinstall.js && node bin/data.js && npm start",
-    "clean": "enb make clean && rm -rf node_modules && rm -rf libs && rm -rf cache && rm -rf backups && rm -rf logs",
+    "data": "node node_modules/.bin/bse sync-nodes --dev",
+    "make": "npm install && node postinstall.js && npm run data && npm start",
+    "clean": "enb make clean && rm -rf node_modules && rm -rf libs && rm -rf cache && rm -rf logs",
     "clean_logs": "rm -rf logs/*",
     "clean_cache": "rm -rf cache/*",
-    "clean_data": "rm -rf backups/*",
     "test": "node_modules/.bin/jshint . && node_modules/.bin/jscs -c .jscs.js ."
   },
   "author": "info@bem.info",
