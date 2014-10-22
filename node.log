@@ -1,4 +1,14 @@
-[2014-10-22 14:16:49] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/data.json
-[2014-10-22 14:16:49] [32m[1mINFO[22m[39m [1mapp.app.node.js[22m: start application on port or socket 80
-[2014-10-22 14:17:00] [32m[1mINFO[22m[39m [1mupdater.updater.node.js[22m: Check for update for start
-[2014-10-22 14:17:00] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/marker.json
+[2014-10-22 14:31:12] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/data.json
+[2014-10-22 14:31:13] [32m[1mINFO[22m[39m [1mapp.app.node.js[22m: start application on port or socket 80
+[2014-10-22 14:32:00] [32m[1mINFO[22m[39m [1mupdater.updater.node.js[22m: Check for update for start
+[2014-10-22 14:32:00] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/marker.json
+[2014-10-22 14:33:00] [32m[1mINFO[22m[39m [1mupdater.updater.node.js[22m: Check for update for start
+[2014-10-22 14:33:00] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/marker.json
+[2014-10-22 14:34:00] [32m[1mINFO[22m[39m [1mupdater.updater.node.js[22m: Check for update for start
+[2014-10-22 14:34:00] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/marker.json
+[2014-10-22 14:35:00] [32m[1mINFO[22m[39m [1mupdater.updater.node.js[22m: Check for update for start
+[2014-10-22 14:35:00] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/marker.json
+[2014-10-22 14:36:00] [32m[1mINFO[22m[39m [1mupdater.updater.node.js[22m: Check for update for start
+[2014-10-22 14:36:00] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/marker.json
+[2014-10-22 14:37:00] [32m[1mINFO[22m[39m [1mupdater.updater.node.js[22m: Check for update for start
+[2014-10-22 14:37:00] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/marker.json
