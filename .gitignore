@@ -29,3 +29,4 @@ src/www/freeze
 
 node.log
 node.pid
+model/data.json
