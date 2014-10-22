@@ -16,7 +16,7 @@ github.listen();
 
 github.on('push:jsboom-bem:refs/heads/dev', function (data) {
 	console.log('data',data);
-});
+}); 
 
 // github.on('reponame', function (event, ref, data) {
 // });
