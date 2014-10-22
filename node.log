@@ -1,4 +1,0 @@
-[2014-10-22 16:04:29] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/data.json
-[2014-10-22 16:04:29] [32m[1mINFO[22m[39m [1mapp.app.node.js[22m: start application on port or socket 80
-[2014-10-22 16:05:00] [32m[1mINFO[22m[39m [1mupdater.updater.node.js[22m: Check for update for start
-[2014-10-22 16:05:00] [36m[1mDEBUG[22m[39m [1m_type.provider_type_file.node.js[22m: load data from file file backups/marker.json

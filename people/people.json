@@ -10,5 +10,28 @@
             "skype": "kseniaivanovna",
             "info": "Developer в HSM"
         }
+    },
+    "klond90": {
+        "ru": {
+            "firstName": "Николай",
+            "lastName": "Мендяев",
+            "avatar": "https://raw.githubusercontent.com/bem/bem-site-engine/dev/docs/people/avatars/andrey-kuznetsov.png",
+            "github": "klond90",
+            "email": [],
+            "twitter": "klond90",
+            "skype": "klond90",
+            "info": "Lead Developer в HSM"
+        }
+    },
+    "peremenov": {
+        "ru": {
+            "firstName": "Кирилл",
+            "lastName": "Переменов",
+            "avatar": "https://raw.githubusercontent.com/bem/bem-site-engine/dev/docs/people/avatars/andrey-kuznetsov.png",
+            "github": "peremenov",
+            "email": [],
+            "twitter": "peremenov",
+            "info": "Lead Front-end Developer в HSM"
+        }
     }
 }

@@ -21,38 +21,13 @@ module.exports = {
 };
 
 var getCustom = function() {
-    var dirmd = './md';
-    var files = fs.readdirSync(dirmd);
-    console.log(files);
-    var counter = 0;
-     items = files.reduce(function(list, curFileName){
-        var title = fs.readFileSync('./md/'+curFileName, {encoding: 'utf8'}).split('\n')[0].substr(2);
-        list.push({
-            // title: 'Bem-site-engine',
-            // createDate: '12-07-2014',
-            // authors: ['kuznetsov-andrey'],
-            // tags: ['javascript'],
-            title: title,
-            route: ''+curFileName.split('.')[0],
-            source: {
-                ru: {
-                    title: title,
-                    createDate: '12-09-2014', 
-                    authors: ['pulpiks'],
-                    tags: ['readme'],
-                    content: 'https://github.com/pulpiks/jsboom-bem/blob/dev/md/' + curFileName
-                }
-            }
-        });
-        return list;
-    }, []);    
      var obj = {
-       title: 'Статьи',
-       route: {
+        title: 'Статьи',
+        route: {
            name: 'articles',
            pattern: '/articles(/<id>)(/)'
-       },
-        items:items
+        },
+        items: JSON.parse(fs.readFileSync('data.json', {encoding: 'utf8'}))
     };
     console.log(util.inspect(obj, {showHidden: false, depth: null}));
     return obj;
@@ -69,7 +44,7 @@ var getMain = function() {
             ru: {
                 title: 'Bem-site-engine',
                 createDate: '12-07-2014',
-                authors: ['kuznetsov-andrey'],
+                authors: ['pulpiks'],
                 tags: ['readme'],
                 content: 'https://github.com/pulpiks/jsboom-bem/blob/dev/md/0.md'
             }
