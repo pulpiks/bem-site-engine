@@ -1,19 +1,28 @@
+// var express = require('express');
+var fs = require('fs');
+// var app = express();
+
+// app.get('/', function(req, res){
+//   res.send('hello world');
+// });
+
 module.exports = {
     get: function() {
         return [
             getMain(),
-            getCustom(),
-            getDocs(),
-            getLibraries(),
-            getAuthors(),
-            getTags()
+            getCustom()
+            // getDocs(),
+            // getLibraries(),
+            // getAuthors(),
+            // getTags()
         ];
     }
 };
 
 var getMain = function() {
+    
     return {
-        title: 'Привет Bem-Engine',
+        title: 'Статьи',
         route: {
             name: 'index',
             pattern: '/'
@@ -32,27 +41,54 @@ var getMain = function() {
 
 
 var getCustom = function() {
+    var dirmd = './md';
+    var files = fs.readdirSync(dirmd);
+    console.log(files);
+    var counter = 0;
+     items = files.reduce(function(list, curFileName){
+        var title = fs.readFileSync('./md/'+curFileName, {encoding: 'utf8'}).split('\n')[0].substr(2);
+        list.push({
+            // title: 'Bem-site-engine',
+            // createDate: '12-07-2014',
+            // authors: ['kuznetsov-andrey'],
+            // tags: ['javascript'],
+            title: title,
+            route: ''+curFileName.split('.')[0],
+            source: {
+                ru: {
+                    title: curFileName.split('.')[0],
+                    createDate: '12-07-2014', 
+                    authors: ['pulpiks'],
+                    tags: ['documentation', 'javascript'],
+                    content: 'https://github.com/pulpiks/jsboom-bem/blob/dev/md/' + curFileName
+                }
+            }
+        });
+        return list;
+    }, []);    
+
     return {
        title: 'Статьи',
        route: {
            name: 'articles',
            pattern: '/articles(/<id>)(/)'
        },
-       items: [
-           {
-               title: 'что-то',
-               route: 'model',
-               source: {
-                   ru: {
-                       title: 'Создание модели',
-                       createDate: '12-07-2014',
-                       authors: ['kuznetsov-andrey'],
-                       tags: ['documentation', 'model'],
-                       content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/model.ru.md'
-                   }
-               }
-           }
-        ]
+       items:items
+       // items: [
+       //     {
+       //         title: 'что-то',
+       //         route: 'model',
+       //         source: {
+       //             ru: {
+       //                 title: 'Создание модели',
+       //                 createDate: '12-07-2014',
+       //                 authors: ['kuznetsov-andrey'],
+       //                 tags: ['documentation', 'model'],
+       //                 content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/model.ru.md'
+       //             }
+       //         }
+       //     }
+       //  ]
     };
 };
 
