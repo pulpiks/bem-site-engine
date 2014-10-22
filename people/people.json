@@ -1,0 +1,14 @@
+{
+    "pulpiks": {
+        "ru": {
+            "firstName": "Ксения",
+            "lastName": "Львова",
+            "avatar": "https://raw.githubusercontent.com/bem/bem-site-engine/dev/docs/people/avatars/andrey-kuznetsov.png",
+            "github": "pulpiks",
+            "email": [],
+            "twitter": "pulpiks",
+            "skype": "kseniaivanovna",
+            "info": "Developer в HSM"
+        }
+    }
+}
