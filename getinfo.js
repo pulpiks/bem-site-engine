@@ -6,7 +6,8 @@ function execute(command, callback){
 var vow = require('vow');
 
 var userMap = {
-    root: 'pulpiks'
+    root: 'pulpiks',
+    'Nikolay Mendyaev': 'klond90'
 };
 
 var dirmd = './md';
@@ -15,6 +16,7 @@ var files = fs.readdirSync(dirmd);
 function readFileInfo(file){
     var dfd = vow.defer();
     execute("git log --format='%aN' "+file+" | sort -u", function(res){
+        // console.log(file);
         var authors = res.trim().split('\n').map(function(x){var r = x.trim(); return userMap[r]?userMap[r]:r;});
         var title = fs.readFileSync(file, {encoding: 'utf8'}).split('\n')[0].substr(2);
         var content = 'https://github.com/pulpiks/jsboom-bem/blob/dev/'+file;
@@ -30,6 +32,7 @@ function readFileInfo(file){
                 }
             }
         };
+        // console.log(obj);
         dfd.resolve(obj);
     });
     return dfd.promise();
@@ -39,7 +42,7 @@ var items = [];
 files.forEach(function(curFileName){
     var file = 'md/'+curFileName;
     if (chain){
-        chain.then((function(file, result){
+        chain = chain.then((function(file, result){
             items.push(result);
             return readFileInfo(file);
         }).bind(null, file));

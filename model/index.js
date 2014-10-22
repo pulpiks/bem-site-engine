@@ -1,7 +1,14 @@
 // var express = require('express');
 var fs = require('fs');
 var util = require('util');
-// var app = express();
+try{
+var items = JSON.parse(fs.readFileSync('model/data.json', {encoding: 'utf8'}));
+}catch(e){
+    console.log('\n', process.cwd(), '\n')
+    console.log(e);
+    console.log(e.printStackTrace())
+    process.exit(1);
+}// var app = express();
 
 // app.get('/', function(req, res){
 //   res.send('hello world');
@@ -27,7 +34,7 @@ var getCustom = function() {
            name: 'articles',
            pattern: '/articles(/<id>)(/)'
         },
-        items: JSON.parse(fs.readFileSync('data.json', {encoding: 'utf8'}))
+        items: items
     };
     console.log(util.inspect(obj, {showHidden: false, depth: null}));
     return obj;

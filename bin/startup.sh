@@ -9,4 +9,4 @@ then
 kill -9 $(cat ./node.pid)
 fi
 
-nohup bin/node app.js > ./node.log 2>&1 & echo $! > ./node.pid
+nohup node bin/app.js > ./node.log 2>&1 & echo $! > ./node.pid
