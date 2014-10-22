@@ -1,0 +1,45 @@
+# ,Переопределение нативного метода javascript window.console,,
+
+Перепишем в соответствии с условием,чтобы на каждый вызов console.log происходил вызов alert этой переменной.
+
+### 1\. Переопределение через вспомогательную функцию
+
+    myConsole = {};
+    myConsole = window.console;
+    myConsole.print = window.console.log;
+    
+    console.log = function(){
+       var args = [];
+        args = Array.prototype.slice.call(arguments, 0); 
+        for(var i=0; i< args.length; i++){
+            myConsole.print(args[i]); 
+            alert(args[i]);
+        }
+    }
+    
+    console.log('Слово',1,2,')))');
+    
+
+### 2\. Каррирование
+
+    console.log = (
+        function(){
+            var log = console.log; 
+            return function(){
+                for(var i =0;i<arguments.length;i++){
+                    alert(arguments[i]);
+                    log.call(console,arguments[i]);
+                }
+            };
+        }
+    )();
+    console.log('Слово',1,2,')))');
+    
+
+Код выложен по ссылкам:
+[http://jsfiddle.net/KZDFz/4/][0]   
+[http://jsfiddle.net/cnjsG/1/][1]
+
+
+[0]: http://jsfiddle.net/KZDFz/4/
+[1]: http://jsfiddle.net/cnjsG/1/

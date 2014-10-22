@@ -2,7 +2,7 @@ module.exports = {
     get: function() {
         return [
             getMain(),
-            //getCustom(),
+            getCustom(),
             getDocs(),
             getLibraries(),
             getAuthors(),
@@ -30,25 +30,32 @@ var getMain = function() {
     };
 };
 
-/*
+
 var getCustom = function() {
     return {
-        title: '',
-        route: {
-            name: '',
-            pattern: '/'
-        },
-        source: {
-            ru: {
-                title: '',
-                authors: ['kuznetsov-andrey'],
-                tags: [''],
-                content: ''
-            }
-        }
+       title: 'Статьи',
+       route: {
+           name: 'articles',
+           pattern: '/articles(/<id>)(/)'
+       },
+       items: [
+           {
+               title: 'что-то',
+               route: 'model',
+               source: {
+                   ru: {
+                       title: 'Создание модели',
+                       createDate: '12-07-2014',
+                       authors: ['kuznetsov-andrey'],
+                       tags: ['documentation', 'model'],
+                       content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/model.ru.md'
+                   }
+               }
+           }
+        ]
     };
 };
-*/
+
 
 var getDocs = function() {
     return {
