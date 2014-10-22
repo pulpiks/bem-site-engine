@@ -1,27 +1,29 @@
 var express = require('express');
-var githubhook = require('githubhook');
+var http = require('http');
+var createHandler = require('github-webhook-handler');
+var handler = createHandler({ path: '/webhook', secret: 'ksenia' });
 
-var github = githubhook({port: 3420, logger: {log: console.log, error: console.log}});
+http.createServer(function (req, res) {
+  handler(req, res, function (err) {
+    res.statusCode = 404
+    res.end('no such location')
+  })
+}).listen(7777)
 
+handler.on('error', function (err) {
+  console.err('Error:', err.message)
+})
 
-github.on('*', function (event, repo, ref, data) {
-	console.log('*', arguments);
-});
+handler.on('push', function (event) {
+  console.log('Received a push event for %s to %s',
+    event.payload.repository.name,
+    event.payload.ref)
+})
 
-// github.on('push', function (repo, ref, data) {
-// });
-
-// github.on('event:reponame', function (ref, data) {
-// });
-  
-github.on('push', function (data) {
-	console.log('data',data);
-}); 
-
-// github.on('reponame', function (event, ref, data) {
-// });
-
-// github.on('reponame:ref', function (event, data) {
-// });
-
-github.listen();
+handler.on('issues', function (event) {
+  console.log('Received an issue event for % action=%s: #%d %s',
+    event.payload.repository.name,
+    event.payload.action,
+    event.payload.issue.number,
+    event.payload.issue.title)
+})
