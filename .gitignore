@@ -26,3 +26,6 @@ src/www/freeze
 *.upload
 *.dsc
 *.tar.gz
+
+node.log
+node.pid

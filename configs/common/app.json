@@ -4,8 +4,8 @@
     "port": 80,
     "statics": "/src",
     "title": {
-        "en": "Your application title",
-        "ru": "Название приложения"
+        "en": "JSboom",
+        "ru": "JSboom - сайт про JS"
     },
     "update": {
         "enable": true,
@@ -26,16 +26,16 @@
     "github": {
         "libraries": {
             "type": "public",
-            "user": "bem",
-            "repo": "bem-info-libs",
-            "ref": "master",
+            "user": "pulpiks",
+            "repo": "jsboom-bem",
+            "ref": "dev",
             "pattern": "https://raw.githubusercontent.com/%s/%s/%s%s"
         },
         "public": {
             "host": "api.github.com",
             "auth": "57e4fb0c83d3337ffe991d8b61e09c54288c2d7e"
         },
-        "people": "https://github.com/bem/bem-site-engine/blob/dev/docs/people/people.json"
+        "people": "https://github.com/pulpiks/jsboom-bem/blob/dev/people/people.json"
     },
     "hosts": {
         "en": "http://you-site-host-en",

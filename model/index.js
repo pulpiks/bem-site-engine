@@ -1,5 +1,6 @@
 // var express = require('express');
 var fs = require('fs');
+var util = require('util');
 // var app = express();
 
 // app.get('/', function(req, res){
@@ -9,7 +10,7 @@ var fs = require('fs');
 module.exports = {
     get: function() {
         return [
-            // getMain(),
+            getMain(),
             getCustom()
             // getDocs()
             // getLibraries(),
@@ -35,106 +36,111 @@ var getCustom = function() {
             route: ''+curFileName.split('.')[0],
             source: {
                 ru: {
-                    title: curFileName.split('.')[0],
-                    createDate: '12-07-2014', 
+                    title: title,
+                    createDate: '12-09-2014', 
                     authors: ['pulpiks'],
-                    tags: ['documentation', 'javascript'],
+                    tags: ['readme'],
                     content: 'https://github.com/pulpiks/jsboom-bem/blob/dev/md/' + curFileName
                 }
             }
         });
         return list;
     }, []);    
-
-    return {
+     var obj = {
        title: 'Статьи',
        route: {
            name: 'articles',
            pattern: '/articles(/<id>)(/)'
        },
-       items:items
-       // items: [
-       //     {
-       //         title: 'что-то',
-       //         route: 'model',
-       //         source: {
-       //             ru: {
-       //                 title: 'Создание модели',
-       //                 createDate: '12-07-2014',
-       //                 authors: ['kuznetsov-andrey'],
-       //                 tags: ['documentation', 'model'],
-       //                 content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/model.ru.md'
-       //             }
-       //         }
-       //     }
-       //  ]
+        items:items
+    };
+    console.log(util.inspect(obj, {showHidden: false, depth: null}));
+    return obj;
+};
+
+var getMain = function() {
+    return {
+        title: 'Привет Bem-Engine',
+        route: {
+            name: 'index',
+            pattern: '/'
+        },
+        source: {
+            ru: {
+                title: 'Bem-site-engine',
+                createDate: '12-07-2014',
+                authors: ['kuznetsov-andrey'],
+                tags: ['readme'],
+                content: 'https://github.com/pulpiks/jsboom-bem/blob/dev/md/0.md'
+            }
+        }
     };
 };
 
 
-// var getDocs = function() {
-//     return {
-//         title: 'Документация',
-//         route: {
-//             name: 'documentation',
-//             pattern: '/documentation(/<id>)(/)'
-//         },
-//         items: [
-//             {
-//                 title: 'Создание модели',
-//                 route: 'model',
-//                 source: {
-//                     ru: {
-//                         title: 'Создание модели',
-//                         createDate: '12-07-2014',
-//                         authors: ['kuznetsov-andrey'],
-//                         tags: ['documentation', 'model'],
-//                         content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/model.ru.md'
-//                     }
-//                 }
-//             },
-//             {
-//                 title: 'Конфигурация',
-//                 route: 'config',
-//                 source: {
-//                     ru: {
-//                         title: 'Руководство по конфигурированию приложения',
-//                         createDate: '12-07-2014',
-//                         authors: ['kuznetsov-andrey'],
-//                         tags: ['documentation', 'config'],
-//                         content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/config.ru.md'
-//                     }
-//                 }
-//             },
-//             {
-//                 title: 'Описание middleware модулей',
-//                 route: 'middleware',
-//                 source: {
-//                     ru: {
-//                         title: 'Описание middleware модулей',
-//                         createDate: '12-07-2014',
-//                         authors: ['kuznetsov-andrey'],
-//                         tags: ['documentation', 'middleware'],
-//                         content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/middleware.ru.md'
-//                     }
-//                 }
-//             },
-//             {
-//                 title: 'Процесс сборки данных',
-//                 route: 'compile',
-//                 source: {
-//                     ru: {
-//                         title: 'Процесс сборки данных',
-//                         createDate: '12-07-2014',
-//                         authors: ['kuznetsov-andrey'],
-//                         tags: ['documentation', 'data-compile'],
-//                         content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/data_compiling.ru.md'
-//                     }
-//                 }
-//             }
-//         ]
-//     };
-// };
+var getDocs = function() {
+    return {
+        title: 'Документация',
+        route: {
+            name: 'documentation',
+            pattern: '/documentation(/<id>)(/)'
+        },
+        items: [
+            {
+                title: 'Создание модели',
+                route: 'model',
+                source: {
+                    ru: {
+                        title: 'Создание модели',
+                        createDate: '12-07-2014',
+                        authors: ['kuznetsov-andrey'],
+                        tags: ['documentation', 'model'],
+                        content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/model.ru.md'
+                    }
+                }
+            },
+            {
+                title: 'Конфигурация',
+                route: 'config',
+                source: {
+                    ru: {
+                        title: 'Руководство по конфигурированию приложения',
+                        createDate: '12-07-2014',
+                        authors: ['kuznetsov-andrey'],
+                        tags: ['documentation', 'config'],
+                        content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/config.ru.md'
+                    }
+                }
+            },
+            {
+                title: 'Описание middleware модулей',
+                route: 'middleware',
+                source: {
+                    ru: {
+                        title: 'Описание middleware модулей',
+                        createDate: '12-07-2014',
+                        authors: ['kuznetsov-andrey'],
+                        tags: ['documentation', 'middleware'],
+                        content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/middleware.ru.md'
+                    }
+                }
+            },
+            {
+                title: 'Процесс сборки данных',
+                route: 'compile',
+                source: {
+                    ru: {
+                        title: 'Процесс сборки данных',
+                        createDate: '12-07-2014',
+                        authors: ['kuznetsov-andrey'],
+                        tags: ['documentation', 'data-compile'],
+                        content: 'https://github.com/bem/bem-site-engine/blob/dev/docs/data_compiling.ru.md'
+                    }
+                }
+            }
+        ]
+    };
+};
 
 var getLibraries = function() {
     return {
